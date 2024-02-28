@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="mouse-me">Move your mouse here!</p>
+
+
+<script>
+let mousecount = 0
+//write script here
+let message = document.querySelector('#mouse-me')
+//selects the query to use
+message.addEventListener('mouseover', function (){
+    //"listens" for an event to react to
+
+             mousecount++
+    //adds mousecount by 1, remember java
+
+            if (mousecount == 1){
+                message.innerHTML = 'Mouse has been here ' + mousecount + ' time'
+            } else {
+                message.innerHTML = 'Mouse has been here ' + mousecount + ' times'
+            }
+            //loop to make the grammar correct
+    // conditional code goes INSIDE curly braces
+})
+message.addEventListener('mouseout', function (){
+    message.innerHTML = 'Your mouse is NOT on this message'
+
+})
+
+</script>
+</body>
+</html>

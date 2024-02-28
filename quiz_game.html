@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p> What is the capital of Texas?</p>
+<button class="wrong-answer">Houston</button>
+<button id="correct-answer">Austin</button>
+<button class="wrong-answer">Dallas</button>
+
+<p id="result"></p>
+<script>
+let correctAnswerButton = document.querySelector('#correct-answer')
+// remember # is for id, and the '.' is for class
+let defaultButtonColor = correctAnswerButton.style.background
+//resets the correctAnswerButton color
+console.log(correctAnswerButton)
+// console.log is to have this show up in
+// developer tools to confirm it's working
+let result = document.querySelector('#result')
+let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+// functional style loop
+// wrongAnswerButtons.forEach(function (wrongAnswerButton) {
+//     //forEach simply means that for each wrongAnswerButton element it will take the action below
+//     // so basically a loop
+//     wrongAnswerButton.addEventListener('click', function (){
+//         result.innerHTML = 'Wrong answer, try again?'
+//         correctAnswerButton.style.background = defaultButtonColor
+//     })
+// })
+
+//imperative style loop, for loop
+for (let x=0 ; x< wrongAnswerButtons.length; x++) {
+    let wrongAnswerButton = wrongAnswerButtons[x]
+    wrongAnswerButton.addEventListener('click', function () {
+        result.innerHTML = 'Wrong answer, try again?'
+        correctAnswerButton.style.background = defaultButtonColor
+
+    })
+}
+
+correctAnswerButton.addEventListener('click', function () {
+    result.innerHTML = 'Correct answer!'
+    // perfect example of EventListener with element, event type, and response to the event
+    correctAnswerButton.style.background = 'steelblue'
+
+})
+
+
+</script>
+</body>
+</html>
